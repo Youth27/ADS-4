@@ -1,7 +1,7 @@
 // Copyright 2021 NNTU-CS
 int countPairs1(int *arr, int len, int value) {
   int schet = 0;
-  for (int i = 1; i < len; i++) {
+  for (int i = 0; i < len; i++) {
     for (int k = i + 1; k < len; k++) {
       if (arr[i] + arr[k] == value) {
         schet += 1;
@@ -37,14 +37,15 @@ int countPairs3(int *arr, int len, int value) {
         s = sered - 1;
         while (arr[l] + arr[s] == value && s > left) {
           schet3 += 1;
-          s--;
+          s -= 1;
         }
         break;
       }
-      if (arr[l] + arr[sered] > value)
+      if (arr[l] + arr[sered] > value) {
         right = sered;
-      else
+      } else {
         left = sered;
+      }
     }
   }
   return schet3;
